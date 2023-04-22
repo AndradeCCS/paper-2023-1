@@ -28,41 +28,50 @@
           <a class="nav-link" href="?page=novop">Cadastrar paciente</a>
         </li>
 
+        <li class="nav-item-cadastrar-medicamento">
+          <a class="nav-link" href="?page=medicamento">Cadastrar Medicamento</a>
+        </li>  
+
         <li class="nav-item-listar-paciente">
           <a class="nav-link" href="?page=listar">Listar Pacientes</a>
         </li>  
-
-        <div class="container">
-           <div class="row">
-            <div class="col mt-5">
-        
-            
-              <?php
-                include("config.php");
-                switch(@$_REQUEST["page"]) {
-                  case"novom":
-                    include("novo-medico.php"); 
-                  break;
-                    case"novop":
-                    include("novo-paciente.php"); 
-                  break;
-                  case"listar":
-                    include("listar-pacientes.php");
-                  break;
-                  case"med":
-                    include("salvar-med.php");
-                  break;
-                  case"pac":
-                    include("salvar-pac.php");
-                  break;
-                  
-                   }
-              ?>
-            
+      
+        <main>
+          <div class="container">
+             <div class="row">
+              <div class="col mt-5">
+          
+          
+                <?php
+                  include("config.php");
+                  switch(@$_REQUEST["page"]) {
+                    case"novom":
+                      include("novo-medico.php");
+                    break;
+                      case"novop":
+                      include("novo-paciente.php");
+                    break;
+                    case"medicamento":
+                      include("novo-medicamento.php");
+                    break;
+                    case"listar":
+                      include("listar-pacientes.php");
+                    break;
+                    case"med":
+                      include("salvar-med.php");
+                    break;
+                    case"pac":
+                      include("salvar-pac.php");
+                    break;
+          
+                     }
+                ?>
+          
+              </div>
+             </div>
             </div>
-           </div>
-          </div>
-        </nav>  
+          </nav>
+        </main>
          
 
     <script src="js/bootstrap.bundle.min.js"></script>

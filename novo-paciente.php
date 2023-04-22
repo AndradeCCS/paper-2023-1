@@ -1,6 +1,7 @@
 <h1>Novo Paciente</h1>
 <form action="?page=pac" method="post">
     <input type="hidden" name="acao" value="cadastrar">
+    
     <div class="mb-3">
         <label>Nome</label>
         <input type="text" name="nome"  class="form-control">
