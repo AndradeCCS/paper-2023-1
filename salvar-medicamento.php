@@ -16,7 +16,7 @@
                 print "<script>alert('Medicamento cadastrado com sucesso!');</script>";
                 print "<script>location.href='?page=listar';</script>";
               }else{
-                print "<script>alert('Não foi possível cadastrar novo medicamento');</script>";
+                
               }
 
         break;    

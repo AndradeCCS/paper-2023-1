@@ -15,7 +15,7 @@
         print "<th>Endereço</th>";
         print "<th>Data de Nascimento</th>";
         print "<th>Leito</th>";
-        print "<th>Médicos</th>";
+        print "<th>Opções</th>";
         print "</tr>";
         while($row = $res->fetch_object()){
             print "<tr>";

@@ -1,5 +1,5 @@
 <h1>Medicamento</h1>
-<form action="?page=medicamento" method="post">
+<form action="?page=listar-medicamento" method="post">
     <input type="hidden" name="acao" value="cadastrar">
 
     <div class="mb-3">
