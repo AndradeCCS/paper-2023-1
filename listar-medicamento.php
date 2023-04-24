@@ -24,7 +24,7 @@
             print "<td>".$row->descricao."</td>";
             print "<td>
                        <button class='btn btn-success'>Editar Medicamento</button>
-                       <button class='btn btn-danger'>Baixa Medicamento</button></td>";
+                       <button class='btn btn-danger'>Baixar Medicamento</button></td>";
             print "</tr>";
             
             
