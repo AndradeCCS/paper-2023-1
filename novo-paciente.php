@@ -6,6 +6,10 @@
         <label>Nome</label>
         <input type="text" name="nome"  class="form-control">
     </div>
+    <div class="col-md-12">
+        <label>seleção</label>
+        <input type="text" name="selecao" id="" class="form-select" >
+    </div>
     <div class="col-md-7">
         <label>CPF</label>
         <input type="text" name="cpf"  class="form-control">
