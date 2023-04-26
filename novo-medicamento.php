@@ -1,5 +1,5 @@
-<h1>Medicamento</h1>
-<form action="?page=listar-medicamento" method="post">
+<h2>Medicamento</h2>
+<form action="?page=medicamento" method="post">
     <input type="hidden" name="acao" value="cadastrar">
 
     <div class="mb-3">
@@ -24,5 +24,5 @@
 
     <div class="mb-3">
          <button type="submit" class="btn btn-primary">Enviar</button>
-    </div>     
+    </div>   
 </form>

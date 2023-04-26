@@ -1,4 +1,4 @@
-<h1>Novo Medico</h1>
+<h2>Novo Medico</h2>
 <form action="?page=med" method="post">
     <input type="hidden" name="acao" value="cadastrar">
 

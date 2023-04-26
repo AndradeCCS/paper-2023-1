@@ -1,14 +1,19 @@
 <?php
     switch ($_REQUEST["acao"]) {
         case 'cadastrar':
-            $cpf = $_POST["cpf"];
             $nome = $_POST["nome"];
-            $endereco = $_POST["endereco"];
-            $datanascimento = $_POST["datanascimento"];
-            $leito = $_POST["leito"];
+            $cpf = $_POST["cpf"]; 
+            $datanascimento = $_POST["datanascimento"];           
+            $cep = $_POST["cep"];
+            $uf = $_POST["uf"];
+            $cidade = $_POST["cidade"];
+            $bairro = $_POST["bairro"];
+            $rua = $_POST["rua"];
+            $numero = $_POST["numero"];
+           
 
-            $sql = "INSERT INTO pacientes (cpf, nome, endereco, datanascimento, leito) VALUES ('{$cpf}', '{$nome}', '{$endereco}',
-             '{$datanascimento}', '{$leito}')";
+            $sql = "INSERT INTO pacientes (cpf, nome, datanascimento, cep, uf, cidade, bairro, rua, numero) 
+            VALUES ('{$nome}','{$cpf}','{$datanascimento}','{ $cep}','{$uf}','{$cidade}','{$bairro}','{$rua}','{$numero}')";
 
             $res = $conn->query($sql);
 
