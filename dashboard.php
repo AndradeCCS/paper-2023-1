@@ -62,7 +62,7 @@
             
         </div>
     </section>
-    <section>
+    
       <div class="container">
         <div class="row">
           <div class="col mt-5">
@@ -98,7 +98,7 @@
           </div>
         </div>
       </div>
-    </section>
+    
   </main> 
       <script src="js/bootstrap.bundle.min.js"></script>
   </body>
