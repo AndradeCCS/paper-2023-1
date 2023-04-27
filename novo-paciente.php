@@ -7,7 +7,7 @@
         <input type="text" name="nome"  class="form-control">
     </div>
     <div class="col-md-12">
-        <label>seleção teste</label>
+        <label>seleção teste2</label>
         <input type="text" name="selecao" id="" class="form-select" >
     </div>
     <div class="col-md-7">
