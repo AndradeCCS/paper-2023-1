@@ -58,6 +58,12 @@
               <li class="nav-item-listar-medicamento">
                 <a class="nav-link" href="?page=listar-medicamento">Listar Medicamentos</a>
               </li>
+              <li class="nav-item-agendar-consulta">
+                <a class="nav-link" href="?page=agendar">Agendar</a>
+              </li>
+              <li class="nav-item-agendamentos">
+                <a class="nav-link" href="?page=agendamentos">Agendamentos</a>
+              </li>
             </div>
             
         </div>
@@ -93,6 +99,12 @@
                 case"medicamento":
                   include("salvar-medicamento.php");
                 break;
+                case"agendar":
+                  include("agendar-consulta.php");
+                  break;
+                case"agendamentos":
+                include("agendamentos.php");
+                break;
                 }
             ?>
           </div>
@@ -100,6 +112,5 @@
       </div>
     
   </main> 
-      <script src="js/bootstrap.bundle.min.js"></script>
-  </body>
+      <script src="js/bootstrap.bundle.min.js"></>
 </html>
