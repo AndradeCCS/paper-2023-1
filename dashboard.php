@@ -15,7 +15,7 @@
     <title>Sistema de Controle Hospitalar</title> 
   </head>
   <body>
-    <header></header> 
+  
         
   <main>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -29,7 +29,7 @@
                 </div>
         </div>
     </nav>
-
+    <!--Menus de navegação-->
     <section>
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
@@ -56,16 +56,17 @@
                 <a class="nav-link" href="?page=listar-medicos">Listar Médicos</a>
               </li>
               <li class="nav-item-agendar-consulta">
-                <a class="nav-link" href="?page=agendar">Agendar</a>
+                <a class="nav-link" href="?page=novoagendamento">Agendar</a>
               </li>
               <li class="nav-item-listar-agendamentos">
-                <a class="nav-link" href="?page=agendamentos">Agendamentos</a>
+                <a class="nav-link" href="?page=listar-agendamentos">Agendamentos</a>
               </li>
             </div>
             
         </div>
-    </section>
-    
+
+    <!-- Estrutura que direciona para as ações conforme switch -->
+    </section>    
       <div class="container">
         <div class="row">
           <div class="col mt-5">
@@ -75,14 +76,20 @@
                 case"novom":
                   include("novo-medico.php");
                 break;
-                  case"novop":
+                case"novop":
                   include("novo-paciente.php");
+                break;
+                case"novoagendamento":
+                  include("novo-agendar-consulta.php");
                 break;
                 case"listar":
                   include("listar-pacientes.php");
                 break;
                 case"listar-medicos":
                   include("listar-medicos.php");
+                break;
+                case"listar-agendamentos":
+                  include("listar-agendamentos.php");
                 break;
                 case"med":
                   include("salvar-med.php");
@@ -93,12 +100,7 @@
                 case"agendamentos-salvo":
                   include("salvar-agd.php");
                 break;
-                case"agendar":
-                  include("agendar-consulta.php");
-                  break;
-                case"agendamentos":
-                include("agendamentos.php");
-                break;
+               
                 }
             ?>
           </div>

@@ -1,13 +1,11 @@
 <?php
   switch ($_REQUEST["acao"]) {
-    case 'cadastrar':
-       
-        $idpacientes = $_POST["paciente"];
-        $idmedicos = $_POST["medico"];
+    case 'cadastrar':       
+        $paciente = $_POST["paciente"];
+        $medico = $_POST["medico"];
         $datahora = $_POST["datahora"];
-    
-        $sql = "INSERT INTO agendamentos (idpacientes, idmedicos, datahora) VALUES ('{$idpacientes}', '{$idmedicos}',
-         '{$datahora}')";
+           
+        $sql = "INSERT INTO agendamentos(paciente,medico,datahora) VALUES ('{$paciente}','{$medico}','{$datahora}')";
 
         $res = $conn->query($sql);
 
