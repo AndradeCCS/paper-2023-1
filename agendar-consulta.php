@@ -3,26 +3,27 @@
     <input type="hidden" name="acao" value="cadastrar">
     <div class="col-md-12">
         <label>Paciente</label>
-        <select class="inputOSel">
+        <select class="inputOSel" name="idpacientes" id="idpacientes">
             <option selected></option>
             <?php 
            mysqli_set_charset($conn,'utf8') or die(mysqli_error($conn));
-           $sql = mysqli_query($conn,"SELECT cpf,nome FROM pacientes");
+           $sql = mysqli_query($conn,"SELECT id,cpf,nome FROM pacientes");
            while($row = mysqli_fetch_assoc($sql)) {
-            echo "<option value=".$row['cpf'].">".$row['nome']."</>option";
+            echo "<option value=".$row['cpf'].">".$row['nome'].""."</option>";
            }
             ?>
         </select>
     </div>
     <div class="col-md-12">
         <label>Medico</label>
-        <select class="inputOSel">
-            <option selected></option>
+        <select class="inputOSel" name="idmedicos" id="idmedicos">
+            <option selected ></option>
             <?php 
            mysqli_set_charset($conn,'utf8') or die(mysqli_error($conn));
-           $sql = mysqli_query($conn,"SELECT crm,nome FROM medicos");
+           $sql = mysqli_query($conn,"SELECT id,crm,nome,especialidade FROM medicos");
            while($row = mysqli_fetch_assoc($sql)) {
-            echo "<option value=".$row['crm'].">".$row['nome']."</>option";
+            $medicos = $row['nome']." CRM: ".$row['crm']." - ".$row['especialidade'];
+            echo "<option value=".$row.">".$medicos."</option>";
            }
             ?>
         </select>

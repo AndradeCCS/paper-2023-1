@@ -6,22 +6,17 @@
         <label>Nome</label>
         <input type="text" name="nome"  class="form-control">
     </div>
-    <div class="col-md-12">
-        <label>seleção teste2</label>
-        <input type="text" name="selecao" id="" class="form-select" >
-    </div>
     <div class="col-md-7">
         <label>CPF</label>
-        <input type="text" name="cpf"  class="form-control">
+        <input type="int" name="cpf"  class="form-control" maxlength="11" minlength="11">
     </div>   
     <div class="col-md-5">
         <label>Data de Nascimento</label>
         <input type="date" name="datanascimento"  class="form-control">
     </div>
-
     <div class="col-md-5">
         <label class="form-label">CEP</label>
-        <input type="text" name="cep"  class="form-control">
+        <input type="int" name="cep"  class="form-control" maxlength="8" minlength="8">
     </div>
     <div class="col-md-2">
         <label class="form-label">Estado(UF)</label>

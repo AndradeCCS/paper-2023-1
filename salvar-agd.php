@@ -2,12 +2,11 @@
   switch ($_REQUEST["acao"]) {
     case 'cadastrar':
        
-        $id = $_POST["id"];
-        $cpf_pacientes = $_POST["Paciente"];
-        $crm_medicos = $_POST["Medico"];
+        $idpacientes = $_POST["paciente"];
+        $idmedicos = $_POST["medico"];
         $datahora = $_POST["datahora"];
     
-        $sql = "INSERT INTO agendamentos (id, Paciente, Medico, datahora) VALUES ('{$id}', '{$cpf_pacientes}', '{$crm_medicos}',
+        $sql = "INSERT INTO agendamentos (idpacientes, idmedicos, datahora) VALUES ('{$idpacientes}', '{$idmedicos}',
          '{$datahora}')";
 
         $res = $conn->query($sql);

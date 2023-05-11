@@ -49,19 +49,16 @@
               <li class="nav-item-paciente">
                 <a class="nav-link" href="?page=novop">Cadastrar paciente</a>
               </li>
-              <li class="nav-item-medicamento">
-                <a class="nav-link" href="?page=novomedicamento">Cadastrar Medicamento</a>
-              </li>
               <li class="nav-item-listar-paciente">
                 <a class="nav-link" href="?page=listar">Listar Pacientes</a>
               </li>
-              <li class="nav-item-listar-medicamento">
-                <a class="nav-link" href="?page=listar-medicamento">Listar Medicamentos</a>
+              <li class="nav-item-listar-medicos">
+                <a class="nav-link" href="?page=listar-medicos">Listar Médicos</a>
               </li>
               <li class="nav-item-agendar-consulta">
                 <a class="nav-link" href="?page=agendar">Agendar</a>
               </li>
-              <li class="nav-item-agendamentos">
+              <li class="nav-item-listar-agendamentos">
                 <a class="nav-link" href="?page=agendamentos">Agendamentos</a>
               </li>
             </div>
@@ -81,14 +78,11 @@
                   case"novop":
                   include("novo-paciente.php");
                 break;
-                case"novomedicamento":
-                  include("novo-medicamento.php");
-                break;
                 case"listar":
                   include("listar-pacientes.php");
                 break;
-                case"listar-medicamento":
-                  include("listar-medicamento.php");
+                case"listar-medicos":
+                  include("listar-medicos.php");
                 break;
                 case"med":
                   include("salvar-med.php");
@@ -96,8 +90,8 @@
                 case"pac":
                   include("salvar-pac.php");
                 break;
-                case"medicamento":
-                  include("salvar-medicamento.php");
+                case"agendamentos-salvo":
+                  include("salvar-agd.php");
                 break;
                 case"agendar":
                   include("agendar-consulta.php");
@@ -112,5 +106,6 @@
       </div>
     
   </main> 
-      <script src="js/bootstrap.bundle.min.js"></>
+      <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

@@ -9,7 +9,12 @@
 
     <div class="mb-3">
         <label>CRM</label>
-        <input type="text" name="crm"  class="form-control">
+        <input type="text" name="crm"  class="form-control" maxlength="6" minlength="6">
+    </div>
+
+    <div class="mb-3">
+        <label>UF CRM</label>
+        <input type="text" name="ufcrm"  class="form-control" maxlength="2" minlength="2">
     </div>
        
     <div class="mb-3">
