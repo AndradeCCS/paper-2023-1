@@ -9,10 +9,10 @@
             <?php 
             
            mysqli_set_charset($conn,'utf8') or die(mysqli_error($conn));
-           $sql = mysqli_query($conn,"SELECT id,cpf,nome FROM pacientes");
+           $sql = mysqli_query($conn,"SELECT id,cpf,nomepaciente FROM pacientes");
            while($row = mysqli_fetch_assoc($sql)) {
             $paciente = $row['nome']." - ".$row['cpf'];
-            echo "<option value=".$row['id'].">".$row['nome']."</option>";
+            echo "<option value=".$row['id'].">".$row['nomepaciente']."</option>";
            }           
             ?>
         </select>
@@ -24,10 +24,10 @@
          
            <?php           
                 mysqli_set_charset($conn,'utf8') or die(mysqli_error($conn));
-                $sql = mysqli_query($conn,"SELECT id,crm,nome,especialidade FROM medicos");
+                $sql = mysqli_query($conn,"SELECT id,crm,nomemedico,especialidade FROM medicos");
                 while($row = mysqli_fetch_assoc($sql)) {
                     $medicos = $row['nome']." CRM: ".$row['crm']." - ".$row['especialidade'];
-                    echo "<option value=".$row['id'].">".$row['nome']."</option>";
+                    echo "<option value=".$row['id'].">".$row['nomemedico']."</option>";
                 }            
             ?>            
         </select>

@@ -6,7 +6,7 @@
           $nome = $_POST["nome"];
           $especialidade = $_POST["especialidade"];
           
-          $sql = "INSERT INTO medicos (nome, crm, ufcrm, especialidade) VALUES ('{$nome}', '{$crm}', '{$ufcrm}', '{$especialidade}')";
+          $sql = "INSERT INTO medicos (nomemedico, crm, ufcrm, especialidade) VALUES ('{$nome}', '{$crm}', '{$ufcrm}', '{$especialidade}')";
           
           $res = $conn->query($sql);
 

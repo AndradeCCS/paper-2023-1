@@ -27,7 +27,7 @@
           $endereco = "$rua n°$numero, Bairro: $bairro, Cidade: $cidade, $uf." ;          
 
           print "<tr>";
-          print "<td>".$row->nome."</td>";
+          print "<td>".$row->nomepaciente."</td>";
           print "<td>".$row->cpf."</td>";
           print "<td>".$row->datanascimento."</td>";
           print "<td>".$endereco."</td>";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Jun-2023 às 19:53
+-- Tempo de geração: 04-Jun-2023 às 21:51
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `cadastropacientes`
+-- Banco de dados: `testeagendamento`
 --
 
 -- --------------------------------------------------------
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `agendamentos` (
-  `ID` bigint(20) UNSIGNED NOT NULL,
-  `medico` int(11) DEFAULT NULL,
-  `paciente` int(11) DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `idmedico` int(11) DEFAULT NULL,
+  `idpaciente` int(11) DEFAULT NULL,
   `datahora` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -38,9 +38,12 @@ CREATE TABLE `agendamentos` (
 -- Extraindo dados da tabela `agendamentos`
 --
 
-INSERT INTO `agendamentos` (`ID`, `medico`, `paciente`, `datahora`) VALUES
+INSERT INTO `agendamentos` (`id`, `idmedico`, `idpaciente`, `datahora`) VALUES
 (4, 15, 1, '2023-06-03 00:39:00'),
-(5, 15, 3, '2023-06-07 14:51:00');
+(5, 15, 3, '2023-06-07 14:51:00'),
+(6, 14, 1, '2023-06-05 15:55:00'),
+(7, 9, 1, '2023-06-21 16:26:00'),
+(8, 16, 3, '2023-06-09 18:46:00');
 
 -- --------------------------------------------------------
 
@@ -76,7 +79,7 @@ CREATE TABLE `medicos` (
   `id` int(11) NOT NULL,
   `crm` int(6) NOT NULL,
   `ufcrm` varchar(2) NOT NULL,
-  `nome` varchar(45) NOT NULL,
+  `nomemedico` varchar(45) NOT NULL,
   `especialidade` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -84,12 +87,13 @@ CREATE TABLE `medicos` (
 -- Extraindo dados da tabela `medicos`
 --
 
-INSERT INTO `medicos` (`id`, `crm`, `ufcrm`, `nome`, `especialidade`) VALUES
+INSERT INTO `medicos` (`id`, `crm`, `ufcrm`, `nomemedico`, `especialidade`) VALUES
 (9, 123456, 'SC', 'João da Silva', 'Cardiologia'),
 (10, 123789, 'SC', 'Maria Carolina', 'Cardiologia'),
 (12, 321456, 'PR', 'Anastacio Silva', 'Geriatria'),
 (14, 456789, 'SP', 'Carlos de Jesus', 'Ortopedia'),
-(15, 111111, 'SC', 'Juliano Rodrigues', 'Ortopedista');
+(15, 111111, 'SC', 'Juliano Rodrigues', 'Ortopedista'),
+(16, 123456, 'SC', 'teste cadastro  médico', 'Teste');
 
 -- --------------------------------------------------------
 
@@ -100,7 +104,7 @@ INSERT INTO `medicos` (`id`, `crm`, `ufcrm`, `nome`, `especialidade`) VALUES
 CREATE TABLE `pacientes` (
   `id` int(11) NOT NULL,
   `cpf` int(11) NOT NULL,
-  `nome` varchar(200) NOT NULL,
+  `nomepaciente` varchar(200) NOT NULL,
   `cep` int(11) NOT NULL,
   `uf` varchar(4) NOT NULL,
   `cidade` varchar(100) NOT NULL,
@@ -114,7 +118,7 @@ CREATE TABLE `pacientes` (
 -- Extraindo dados da tabela `pacientes`
 --
 
-INSERT INTO `pacientes` (`id`, `cpf`, `nome`, `cep`, `uf`, `cidade`, `bairro`, `rua`, `datanascimento`, `numero`) VALUES
+INSERT INTO `pacientes` (`id`, `cpf`, `nomepaciente`, `cep`, `uf`, `cidade`, `bairro`, `rua`, `datanascimento`, `numero`) VALUES
 (1, 2147483647, 'Marcus Vinicius da Silva', 89230275, 'Sant', 'Joinville', 'joão Costa', 'Rua Israel', '2000-05-11', 132),
 (3, 2147483647, 'teste 2', 10101100, 'SP', 'São Paulo', 'Teste', 'Teste', '1995-05-11', 402);
 
@@ -149,10 +153,10 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `usuario`, `senha`, `permissao`, 
 -- Índices para tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `ID` (`ID`),
-  ADD KEY `medico` (`medico`),
-  ADD KEY `paciente` (`paciente`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ID` (`id`),
+  ADD KEY `medico` (`idmedico`),
+  ADD KEY `paciente` (`idpaciente`);
 
 --
 -- Índices para tabela `medicamentos`
@@ -186,7 +190,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `medicamentos`
@@ -198,7 +202,7 @@ ALTER TABLE `medicamentos`
 -- AUTO_INCREMENT de tabela `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `pacientes`
@@ -220,8 +224,8 @@ ALTER TABLE `usuarios`
 -- Limitadores para a tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  ADD CONSTRAINT `agendamentos_ibfk_1` FOREIGN KEY (`medico`) REFERENCES `medicos` (`id`),
-  ADD CONSTRAINT `agendamentos_ibfk_2` FOREIGN KEY (`paciente`) REFERENCES `pacientes` (`id`);
+  ADD CONSTRAINT `agendamentos_ibfk_1` FOREIGN KEY (`idmedico`) REFERENCES `medicos` (`id`),
+  ADD CONSTRAINT `agendamentos_ibfk_2` FOREIGN KEY (`idpaciente`) REFERENCES `pacientes` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

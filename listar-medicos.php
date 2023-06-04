@@ -18,14 +18,10 @@
         print "<th>Opções</th>";
         print "</tr>";         
 
-        while($row = $res->fetch_object()){                           
-          $rua = $row->nome;
-          $numero= $row->crm;        
-          $bairro = $row->ufcrm;
-          $cidade = $row->especialidade;      
+        while($row = $res->fetch_object()){                                
 
           print "<tr>";
-          print "<td>".$row->nome."</td>";
+          print "<td>".$row->nomemedico."</td>";
           print "<td>".$row->crm."</td>";
           print "<td>".$row->ufcrm."</td>";
           print "<td>".$row->especialidade."</td>";

@@ -5,7 +5,7 @@
         $medico = $_POST["medico"];
         $datahora = $_POST["datahora"];
            
-        $sql = "INSERT INTO agendamentos(paciente,medico,datahora) VALUES ('{$paciente}','{$medico}','{$datahora}')";
+        $sql = "INSERT INTO agendamentos(idpaciente,idmedico,datahora) VALUES ('{$paciente}','{$medico}','{$datahora}')";
 
         $res = $conn->query($sql);
 

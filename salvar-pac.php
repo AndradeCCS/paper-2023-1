@@ -12,7 +12,7 @@
             $numero = $_POST["numero"];
            
 
-            $sql = "INSERT INTO pacientes (cpf, nome, datanascimento, cep, uf, cidade, bairro, rua, numero) 
+            $sql = "INSERT INTO pacientes (cpf, nomepaciente, datanascimento, cep, uf, cidade, bairro, rua, numero) 
             VALUES ('{$cpf}','{$nome}','{$datanascimento}','{$cep}','{$uf}','{$cidade}','{$bairro}','{$rua}','{$numero}')";
 
             $res = $conn->query($sql);
