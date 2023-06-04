@@ -12,7 +12,7 @@
            $sql = mysqli_query($conn,"SELECT id,cpf,nome FROM pacientes");
            while($row = mysqli_fetch_assoc($sql)) {
             $paciente = $row['nome']." - ".$row['cpf'];
-            echo "<option value=".$row.">".$paciente."</option>";
+            echo "<option value=".$row['id'].">".$row['nome']."</option>";
            }           
             ?>
         </select>
@@ -27,7 +27,7 @@
                 $sql = mysqli_query($conn,"SELECT id,crm,nome,especialidade FROM medicos");
                 while($row = mysqli_fetch_assoc($sql)) {
                     $medicos = $row['nome']." CRM: ".$row['crm']." - ".$row['especialidade'];
-                    echo "<option value=".$row.">".$medicos."</option>";
+                    echo "<option value=".$row['id'].">".$row['nome']."</option>";
                 }            
             ?>            
         </select>
