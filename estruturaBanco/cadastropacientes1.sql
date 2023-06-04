@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Maio-2023 às 20:24
+-- Tempo de geração: 04-Jun-2023 às 19:53
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -28,18 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `agendamentos` (
-  `id` int(11) NOT NULL,
-  `medico` varchar(80) NOT NULL,
-  `paciente` varchar(80) NOT NULL,
-  `datahora` datetime NOT NULL DEFAULT current_timestamp()
+  `ID` bigint(20) UNSIGNED NOT NULL,
+  `medico` int(11) DEFAULT NULL,
+  `paciente` int(11) DEFAULT NULL,
+  `datahora` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `agendamentos`
 --
 
-INSERT INTO `agendamentos` (`id`, `medico`, `paciente`, `datahora`) VALUES
-(4, 'Array', 'Array', '2023-05-12 15:00:00');
+INSERT INTO `agendamentos` (`ID`, `medico`, `paciente`, `datahora`) VALUES
+(4, 15, 1, '2023-06-03 00:39:00'),
+(5, 15, 3, '2023-06-07 14:51:00');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,8 @@ INSERT INTO `medicos` (`id`, `crm`, `ufcrm`, `nome`, `especialidade`) VALUES
 (9, 123456, 'SC', 'João da Silva', 'Cardiologia'),
 (10, 123789, 'SC', 'Maria Carolina', 'Cardiologia'),
 (12, 321456, 'PR', 'Anastacio Silva', 'Geriatria'),
-(14, 456789, 'SP', 'Carlos de Jesus', 'Ortopedia');
+(14, 456789, 'SP', 'Carlos de Jesus', 'Ortopedia'),
+(15, 111111, 'SC', 'Juliano Rodrigues', 'Ortopedista');
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,7 @@ INSERT INTO `medicos` (`id`, `crm`, `ufcrm`, `nome`, `especialidade`) VALUES
 --
 
 CREATE TABLE `pacientes` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `cpf` int(11) NOT NULL,
   `nome` varchar(200) NOT NULL,
   `cep` int(11) NOT NULL,
@@ -147,9 +149,10 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `usuario`, `senha`, `permissao`, 
 -- Índices para tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  ADD PRIMARY KEY (`id`);
-ALTER TABLE `agendamentos` ADD FULLTEXT KEY `medico` (`medico`);
-ALTER TABLE `agendamentos` ADD FULLTEXT KEY `medico_2` (`medico`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD KEY `medico` (`medico`),
+  ADD KEY `paciente` (`paciente`);
 
 --
 -- Índices para tabela `medicamentos`
@@ -183,7 +186,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `medicamentos`
@@ -195,19 +198,30 @@ ALTER TABLE `medicamentos`
 -- AUTO_INCREMENT de tabela `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `agendamentos`
+--
+ALTER TABLE `agendamentos`
+  ADD CONSTRAINT `agendamentos_ibfk_1` FOREIGN KEY (`medico`) REFERENCES `medicos` (`id`),
+  ADD CONSTRAINT `agendamentos_ibfk_2` FOREIGN KEY (`paciente`) REFERENCES `pacientes` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
