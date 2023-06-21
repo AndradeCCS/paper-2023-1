@@ -1,7 +1,6 @@
 <h2>Listar Agendamentos</h2>
 
 <?php
-     //$sql = "SELECT * FROM agendamentos";
      $sql = "SELECT * FROM agendamentos ag
             join pacientes pa join medicos me
             on ag.idpaciente = pa.id and ag.idmedico = me.id";      
@@ -31,9 +30,9 @@
           print "<td>".$row->especialidade."</td>";
           print "<td>".$row->datahora."</td>";
     
-          print "<td>
-                    <button class='btn btn-success'>Editar </button>
-                    <button class='btn btn-danger'>Excluir</button>
+          print " <td>
+                    <button class='btn btn-success' onclick=\"location.href='?page=editar-agd&id=".$row->id."';\">Editar</button>
+                    <button class='btn btn-danger' onclick=\"if(comfirm('Tem certeza que deseja excluir?')){location.href='?page=editar-agd&acao=excluir&id=".$row->id."';}else{false;}\">Excluir</button>
                   </td>";
           print "</tr>";          
             

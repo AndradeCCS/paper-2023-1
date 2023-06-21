@@ -32,8 +32,8 @@
           print "<td>".$row->datanascimento."</td>";
           print "<td>".$endereco."</td>";
           print "<td>
-                    <button class='btn btn-success'>Editar </button>
-                    <button class='btn btn-danger'>Excluir</button>
+                    <button class='btn btn-success' onclick=\"location.href='?page=editar&id=".$row->id."';\">Editar</button>
+                    <button class='btn btn-danger' onclick=\"if(comfirm('Tem certeza que deseja excluir?')){location.href='?page=salvar&acao=excluir&id=".$row->id."';}else{false;}\">Excluir</button>
                   </td>";
           print "</tr>";          
             

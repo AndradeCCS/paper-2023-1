@@ -100,7 +100,15 @@
                 case"agendamentos-salvo":
                   include("salvar-agd.php");
                 break;
-               
+                case"editar":
+                  include("editar-pacientes.php");
+                break;     
+                case"editar-med":
+                  include("editar-medicos.php");
+                break; 
+                case"editar-agd":
+                  include("editar-agendamentos.php");
+                break;                
                 }
             ?>
           </div>
