@@ -1,25 +1,29 @@
-<h2>Agendar</h2>
+<h2>Editar Agendamentos</h2>
 <?php
-    $sql = "SELECT * FROM agendamentos ag
-        join pacientes pa join medicos me
-        on ag.idpaciente = pa.id and ag.idmedico = me.id 
-        where ag.id =".$_REQUEST["id"];
+    $sql = "SELECT ag.id as id, pa.nomepaciente, me.nomemedico, ag.datahora
+            FROM agendamentos ag 
+            join pacientes pa join medicos me
+            on ag.idpaciente = pa.id and ag.idmedico = me.id       
+            where ag.id =".$_REQUEST["id"];   
+               
     $res = $conn->query($sql);
     $row = $res->fetch_object();
 
 ?>
+
 <form action="?page=agendamentos-salvo" method="post">
     <input type="hidden" name="acao" value="editar-agd">
-    <input type="hidden" name="id" value="<?php print $row->id; ?>">
+    <input type="hidden" name="id" value="<?php print $row->id; ?>" >
 
     <div class="mb-3">
         <label>Paciente</label>
-        <select class="inputOSel" name="paciente" id="paciente">
+        <select class="inputOSel" name="paciente" id="paciente" >
             <option selected></option>
             <?php
                 mysqli_set_charset($conn,'utf8') or die(mysqli_error($conn));
                 $sql = mysqli_query($conn,"SELECT id,cpf,nomepaciente FROM pacientes");
                 while($row = mysqli_fetch_assoc($sql)) {
+                                      
                     $paciente = $row['nome']." - ".$row['cpf'];
                     echo "<option value=".$row['id'].">".$row['nomepaciente']."</option>";
                 }
@@ -29,7 +33,7 @@
     <div class="col-md-12">
         <label>Medico</label>
         <select class="inputOSel" name="medico" id="medico">
-            <option selected ></option>
+            <option selected></option>
 
             <?php
                 mysqli_set_charset($conn,'utf8') or die(mysqli_error($conn));
@@ -43,7 +47,7 @@
     </div>
     <div class="form-group">
         <label for="datahora">Data e Hora:</label>
-        <input type="datetime-local" class="form-control" id="datahora" name="datahora" required >
+        <input type="datetime-local" class="form-control" id="datahora" name="datahora" required value="">
     </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Enviar</button>

@@ -3,6 +3,7 @@
     $sql = "SELECT * FROM medicos where id =".$_REQUEST["id"];
     $res = $conn->query($sql);
     $row = $res->fetch_object();
+
 ?>
 <form action="?page=med" method="post">
     <input type="hidden" name="acao" value="editar-med">

@@ -22,7 +22,7 @@
     if($qtd > 0){
         $_SESSION['usuario'] = $usuario;
         $_SESSION['nome'] = $row->nome;
-        $_SESSION['tipo'] = $rwo->tipo;
+        $_SESSION['tipo'] = $row->tipo;
 
         print "<script>location.href='dashboard.php';</script>";
     }else{

@@ -1,26 +1,25 @@
 <?php
-require_once 'config.php';
+    require_once 'config.php';
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
 
-    $sql = "DELETE FROM agendamentos WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    
-    
-    if ($stmt->execute()) {
-      echo "Agendamento excluído com sucesso.";
-   } else {
-        echo "Ocorreu um erro ao excluir o agendamento: " . $stmt->error;
+        $sql = "DELETE FROM agendamentos WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);        
+        
+        if ($stmt->execute()) {
+        echo "Agendamento excluído com sucesso.";
+        echo "<script>location.href='?page=listar-agendamento';</script>";
+        } else {
+            echo "Ocorreu um erro ao excluir o agendamento: " . $stmt->error;
+        }
+        
+        $stmt->close();
+        $conn->close();
+    } else {
+        echo "ID do agendamento não fornecido.";
     }
-
-    
-   $stmt->close();
-    $conn->close();
-} else {
-    echo "ID do agendamento não fornecido.";
-}
 ?>
 
    

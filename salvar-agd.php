@@ -23,15 +23,17 @@
           $paciente = $_POST["paciente"];
           $medico = $_POST["medico"];
           $datahora = $_POST["datahora"];
+          $id = $_REQUEST['id'];
   
           $sql = "UPDATE agendamentos SET
             idpaciente = '{$paciente}',
             idmedico = '{$medico}',
             datahora = '{$datahora}'
-          WHERE id=".$_REQUEST['id'];
-  
+          WHERE id=".$id;
+
+          var_dump($sql);
           $res = $conn->query($sql);
-  
+          
           if($res==true){
               print "<script>alert('Agendamento cadastrado com sucesso!');</script>";
               print "<script>location.href='?page=listar-agendamento';</script>";

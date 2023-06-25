@@ -61,7 +61,7 @@
                     }
             break;
     
-            case 'excluir':
+            case 'excluir-pac':
                 $sql = "DELETE FROM pacientes WHERE id=".$_REQUEST["id"];
     
                 $res = $conn->query($sql);
