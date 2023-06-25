@@ -15,6 +15,12 @@
     <input type="hidden" name="acao" value="editar-agd">
     <input type="hidden" name="id" value="<?php print $row->id; ?>" >
 
+    <label>Paciente</label>
+    <input type="text" name="paciente-inicial" value="<?php print $row->nomepaciente; ?>" disabled>
+    <label>Médico</label>
+    <input type="text" name="medico-inicial" value="<?php print $row->nomemedico; ?>" disabled>
+    <label>Horário</label>
+    <input type="datetime-local" name="datahora-inicial" value="<?php print $row->datahora; ?>" disabled>
     <div class="mb-3">
         <label>Paciente</label>
         <select class="inputOSel" name="paciente" id="paciente" >

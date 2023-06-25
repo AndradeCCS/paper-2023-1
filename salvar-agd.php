@@ -42,6 +42,20 @@
             }
   
         break;
+
+        case 'excluir':
+          $sql = "DELETE FROM agendamentos WHERE id=".$_REQUEST["id"];
+
+          $res = $conn->query($sql);
+
+          if($res==true){
+              print "<script>alert('Agendamento EXCLUÍDO com sucesso!');</script>";
+              print "<script>location.href='?page=listar-agendamentos';</script>";
+              }else{
+              print "<script>alert('Não foi possível EXCLUIR agendamento!');</script>";
+              print "<script>location.href='?page=listar-agendamentos';</script>";
+              }
+      break;
       }
      ?>
 </pre>

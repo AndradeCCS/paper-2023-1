@@ -27,8 +27,8 @@
           print "<td>".$row->datahora."</td>";
     
           print " <td>
-                    <button class='btn btn-success' onclick=\"location.href='?page=editar-agd&id=".$row->id."';\">Editar</button>
-                    <a href='excluir.php?id=".$row->id."' class='btn btn-danger'>Deletar</a>
+                    <button class='btn btn-success' onclick=\"location.href='?page=editar-agd&id=".$row->id."';\">Editar</button>              
+                    <button class='btn btn-danger' onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=agendamentos-salvo&acao=excluir&id=".$row->id."';}else{flase} \">Excluir</button>                  
                                        
                   </td>";
           print "</tr>";          
