@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Jun-2023 às 21:51
+-- Tempo de geração: 29-Jun-2023 às 01:42
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `testeagendamento`
+-- Banco de dados: `cadastropacientes`
 --
 
 -- --------------------------------------------------------
@@ -39,11 +39,9 @@ CREATE TABLE `agendamentos` (
 --
 
 INSERT INTO `agendamentos` (`id`, `idmedico`, `idpaciente`, `datahora`) VALUES
-(4, 15, 1, '2023-06-03 00:39:00'),
-(5, 15, 3, '2023-06-07 14:51:00'),
-(6, 14, 1, '2023-06-05 15:55:00'),
-(7, 9, 1, '2023-06-21 16:26:00'),
-(8, 16, 3, '2023-06-09 18:46:00');
+(6, 16, 1, '2023-06-28 20:18:00'),
+(19, 18, 7, '2023-06-28 17:29:00'),
+(22, 19, 4, '2023-06-30 11:30:00');
 
 -- --------------------------------------------------------
 
@@ -88,12 +86,15 @@ CREATE TABLE `medicos` (
 --
 
 INSERT INTO `medicos` (`id`, `crm`, `ufcrm`, `nomemedico`, `especialidade`) VALUES
-(9, 123456, 'SC', 'João da Silva', 'Cardiologia'),
+(9, 123456, 'SC', 'João da Silva Lopes', 'Cardiologia'),
 (10, 123789, 'SC', 'Maria Carolina', 'Cardiologia'),
 (12, 321456, 'PR', 'Anastacio Silva', 'Geriatria'),
 (14, 456789, 'SP', 'Carlos de Jesus', 'Ortopedia'),
 (15, 111111, 'SC', 'Juliano Rodrigues', 'Ortopedista'),
-(16, 123456, 'SC', 'teste cadastro  médico', 'Teste');
+(16, 123456, 'SC', 'Julia Andrede', 'Cardiologia'),
+(17, 456789, 'RJ', 'Maria Caroline', 'Teste deletar'),
+(18, 154844, 'SC', 'Charles Baur', 'Ortopedia'),
+(19, 987456, 'RJ', 'Julia da Silva e Souza', 'Ortopedia');
 
 -- --------------------------------------------------------
 
@@ -119,8 +120,10 @@ CREATE TABLE `pacientes` (
 --
 
 INSERT INTO `pacientes` (`id`, `cpf`, `nomepaciente`, `cep`, `uf`, `cidade`, `bairro`, `rua`, `datanascimento`, `numero`) VALUES
-(1, 2147483647, 'Marcus Vinicius da Silva', 89230275, 'Sant', 'Joinville', 'joão Costa', 'Rua Israel', '2000-05-11', 132),
-(3, 2147483647, 'teste 2', 10101100, 'SP', 'São Paulo', 'Teste', 'Teste', '1995-05-11', 402);
+(1, 2147483647, 'Marcus Vinicius da Silva editado', 89230275, 'Sant', 'Joinville', 'joão Costa', 'Rua Israel', '2000-05-11', 132),
+(3, 2147483647, 'Joãozinho', 10101100, 'SP', 'São Paulo', 'Teste', 'Teste', '1995-05-11', 402),
+(4, 2147483647, 'Paulo da Silva', 89898989, 'SC', 'Lages', 'Centro', 'centro', '2010-01-14', 3525),
+(7, 2147483647, 'Airton Medley', 89475224, 'DF', 'Brasilia', 'Alis', 'Asa Sul', '2000-10-15', 454);
 
 -- --------------------------------------------------------
 
@@ -190,7 +193,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `medicamentos`
@@ -202,13 +205,13 @@ ALTER TABLE `medicamentos`
 -- AUTO_INCREMENT de tabela `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
