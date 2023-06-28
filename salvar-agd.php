@@ -31,7 +31,6 @@
             datahora = '{$datahora}'
           WHERE id=".$id;
 
-          var_dump($sql);
           $res = $conn->query($sql);
           
           if($res==true){

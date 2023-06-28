@@ -108,10 +108,7 @@
                 break; 
                 case"editar-agd":
                   include("editar-agendamentos.php");
-                break;  
-                case"excluir":
-                  include("excluir.php");
-                break;                 
+                break;                  
                 }
             ?>
           </div>
